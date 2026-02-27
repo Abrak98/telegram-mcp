@@ -1,0 +1,17 @@
+# Whitelist chats configuration
+# Copy to data/chats.toml and fill with your chat IDs
+
+[channel.example_channel]
+id = -1001234567890
+depth_months = 3
+description = "Example channel"
+
+[group.example_group]
+id = -1001234567891
+depth_months = 6
+description = "Example group"
+
+[user.example_user]
+id = 123456789
+depth_months = 12
+description = "Example user"

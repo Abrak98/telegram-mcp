@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: sdd-validator
+        name: SDD Validator
+        entry: python hooks/sdd_validator.py
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+      - id: pytest-check
+        name: Pytest Spec Tests
+        entry: pytest tests/spec/ -v --tb=short
+        language: system
+        pass_filenames: false
+        stages: [commit]
+        always_run: true
