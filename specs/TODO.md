@@ -21,4 +21,4 @@
 
 ## Pending
 
-Нет активных задач.
+- [ ] **SECURITY:** Skill файл НЕ должен содержать: API ключи, телефоны, usernames, chat IDs, личные данные. Всё в .env или config. Skill — только инструкции.
