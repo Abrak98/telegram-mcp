@@ -13,7 +13,13 @@ from src.telegram import ChatType, Dialog, MediaType, Message, TelegramClient, T
 
 
 class TestTelegramConfig:
-    def test_from_env_loads_values(self, tmp_path: Path) -> None:
+    def test_from_env_loads_values(self, tmp_path: Path, monkeypatch) -> None:
+        # Clear any existing env vars
+        monkeypatch.delenv("TELEGRAM_API_ID", raising=False)
+        monkeypatch.delenv("TELEGRAM_API_HASH", raising=False)
+        monkeypatch.delenv("TELEGRAM_PHONE", raising=False)
+        monkeypatch.delenv("TELEGRAM_SESSION_PATH", raising=False)
+
         env_file = tmp_path / ".env"
         env_file.write_text(
             "TELEGRAM_API_ID=12345\n"
@@ -26,7 +32,7 @@ class TestTelegramConfig:
         assert config.api_id == 12345
         assert config.api_hash == "abc123hash"
         assert config.phone == "+1234567890"
-        assert config.session_path == Path("data/session")
+        assert config.session_path == Path.home() / ".config" / "telegram-mcp" / "session"
 
     def test_from_env_missing_api_id_raises(self, tmp_path: Path, monkeypatch) -> None:
         # Clear any existing env vars

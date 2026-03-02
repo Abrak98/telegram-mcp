@@ -23,7 +23,7 @@ class TelegramConfig(BaseModel):
     api_id: int
     api_hash: str
     phone: str
-    session_path: Path = Path("data/session")
+    session_path: Path = Path.home() / ".config" / "telegram-mcp" / "session"
 
     @classmethod
     def from_env(cls) -> "TelegramConfig":

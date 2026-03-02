@@ -116,8 +116,10 @@ src/
 data/             # Создаётся при установке (в .gitignore)
 ├── chats.toml    # Whitelist чатов
 ├── chats/        # Синхронизированные сообщения
-├── media/        # Временные медиа файлы
-└── session.session  # Telegram session
+└── media/        # Временные медиа файлы
+
+~/.config/telegram-mcp/   # Session (вне проекта, chmod 700)
+└── session.session       # Telegram session (chmod 600)
 
 specs/            # SDD спецификации
 tests/            # Тесты

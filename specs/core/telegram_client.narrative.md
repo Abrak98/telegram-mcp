@@ -31,7 +31,7 @@ A1: да, конечно дели
 ### Авторизация
 
 Q2: Telethon требует api_id + api_hash + phone + код из SMS/Telegram. Как хранить credentials?
-- Вариант A: `.env` файл (api_id, api_hash, phone), сессия в `data/session.session`
+- Вариант A: `.env` файл (api_id, api_hash, phone), сессия в `~/.config/telegram-mcp/session`
 - Вариант B: Конфиг `config.yaml`
 - Вариант C: Переменные окружения
 
